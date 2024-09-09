@@ -8,6 +8,6 @@ class Article < ApplicationRecord
 
 
   def self.ransackable_attributes(auth_object = nil)
-    [ "articles_category_id", "body", "created_at", "id", "title", "updated_at" ]
+    [ "articles_category_id", "created_at", "id", "title", "updated_at" ]
   end
 end
