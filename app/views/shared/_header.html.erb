@@ -1,0 +1,14 @@
+<header class="bg-gray-800 text-white p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <div>
+      <%= link_to 'Мій Блог', root_path, class: "text-2xl font-bold" %>
+    </div>
+    <nav>
+      <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+        <li><%= link_to 'Головна', root_path, class: "hover:text-gray-300" %></li>
+        <li><%= link_to 'Про нас', pages_about_path, class: "hover:text-gray-300" %></li>
+        <li><%= link_to 'Умови', pages_terms_path, class: "hover:text-gray-300" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

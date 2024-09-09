@@ -1,0 +1,18 @@
+<h1>Категорії статей</h1>
+
+<ul>
+  <% @categories.each do |category, sub_categories| %>
+    <li>
+      <%= link_to category.name, articles_category_path(category) %>
+      <% if sub_categories.present? %>
+        <ul>
+          <% sub_categories.each do |sub_category, sub_sub_categories| %>
+            <li>
+              <%= link_to sub_category.name, articles_category_path(sub_category) %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
