@@ -4,7 +4,7 @@ ActiveAdmin.register ArticlesCategory do
   form do |f|
     f.inputs do
       f.input :name
-      f.input :parent, as: :select, collection: ArticlesCategory.all.collect { |c| [ c.name, c.id ] }
+      f.input :parent_id, as: :select, collection: ArticlesCategory.all.collect { |c| [ c.name, c.id ] }
     end
     f.actions
   end

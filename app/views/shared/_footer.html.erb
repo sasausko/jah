@@ -1,0 +1,20 @@
+<footer class="bg-gray-100 text-gray-700 py-6">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center border-t border-gray-300 pt-6">
+      <!-- Ліва частина: Назва блогу -->
+      <div class="text-green-600 font-bold text-lg">
+        <%= link_to 'Мій Блог', root_path, class: "hover:text-green-500 transition-colors duration-300" %>
+      </div>
+
+      <!-- Права частина: Посилання -->
+      <div class="flex space-x-4">
+        <%= link_to 'Про нас', pages_about_path, class: "text-gray-700 hover:text-green-500 transition-colors duration-300" %>
+        <%= link_to 'Умови', pages_terms_path, class: "text-gray-700 hover:text-green-500 transition-colors duration-300" %>
+      </div>
+    </div>
+
+    <div class="text-center text-gray-600 mt-4 text-sm">
+      &copy; <%= Time.now.year %> Мій Блог. Всі права захищені.
+    </div>
+  </div>
+</footer>

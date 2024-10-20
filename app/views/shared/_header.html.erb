@@ -1,43 +1,48 @@
-<!-- app/views/layouts/_header.html.erb -->
-
-<header class="bg-green-700 text-white shadow-md">
+<header class="bg-green-700 text-white shadow-md" data-controller="mobile-menu">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Логотип або назва блогу -->
     <div>
       <%= link_to 'Мій Блог', root_path, class: "text-3xl font-extrabold text-green-400 hover:text-green-300 transition-colors duration-300" %>
     </div>
-    
-    <!-- Навігаційне меню -->
-    <nav>
+
+    <!-- Навігаційне меню (для десктопа) -->
+    <nav class="hidden md:block">
       <ul class="flex space-x-6">
         <li>
           <%= link_to 'Головна', root_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
         </li>
         <li>
+          <%= link_to 'Категорії', articles_categories_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
+        </li>
+       <li>
           <%= link_to 'Про нас', pages_about_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
         </li>
         <li>
           <%= link_to 'Умови', pages_terms_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
         </li>
+      </ul>
     </nav>
-    
+
     <!-- Кнопка для мобільного меню -->
-    <div class="md:hidden">
-      <button id="mobile-menu-button" class="text-green-300 hover:text-white">
+    <div class="block md:hidden">
+      <button id="mobile-menu-button" class="text-green-300 hover:text-white" data-action="click->mobile-menu#toggle">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
   </div>
-  
+
   <!-- Мобільне меню -->
-  <div id="mobile-menu" class="md:hidden bg-green-700 hidden">
+  <div id="mobile-menu" class="md:hidden bg-green-700 hidden" data-mobile-menu-target="menu">
     <ul class="flex flex-col space-y-2 px-4 pb-4">
       <li>
         <%= link_to 'Головна', root_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
       </li>
       <li>
+        <%= link_to 'Категорії', articles_categories_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
+      </li>
+     <li>
         <%= link_to 'Про нас', pages_about_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
       </li>
       <li>
