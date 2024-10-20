@@ -1,25 +1,55 @@
-<h1>ArticlesCategories#show</h1>
-<p>Find me in app/views/articles_categories/show.html.erb</p>
+<div class="container mx-auto px-4 py-6">
+  <!-- Назва категорії -->
+  <h1 class="text-3xl font-bold text-green-700 mb-6">
+    Категорія: <%= @category.name %>
+  </h1>
 
-<h1><%= @category.name %></h1>
+  <!-- Перевірка наявності підкатегорій -->
+  <% if @category.children.any? %>
+    <h2 class="text-2xl font-semibold text-green-600 mb-4">Підкатегорії</h2>
 
-<% if @category.children.any? %>
-  <h2>Підкатегорії</h2>
-  <ul>
-    <% @category.children.each do |sub_category| %>
-      <li><%= link_to sub_category.name, articles_category_path(sub_category) %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<h2>Статті</h2>
-<div class="articles-list">
-  <% @articles.each do |article| %>
-    <div class="article-item">
-      <h2><%= link_to article.title, article_path(article) %></h2>
-      <p><%= article.body.to_plain_text.truncate(100) %></p>
-      <p><%= link_to 'Читати далі', article_path(article), class: 'btn btn-primary' %></p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @category.children.each do |subcategory| %>
+        <div class="border border-gray-300 p-4 rounded-lg hover:shadow-md transition-shadow duration-300">
+          <!-- Назва підкатегорії -->
+          <h3 class="text-xl font-semibold text-green-600 hover:text-green-800 transition-colors duration-300 mb-2">
+            <%= link_to subcategory.name, articles_category_path(subcategory) %>
+          </h3>
+        </div>
+      <% end %>
     </div>
+
+  <% elsif @category.articles.any? %>
+    <!-- Виводимо статті, якщо немає підкатегорій -->
+    <h2 class="text-2xl font-semibold text-green-600 mb-4">Статті</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @category.articles.each do |article| %>
+        <div class="border border-gray-300 p-4 rounded-lg hover:shadow-md transition-shadow duration-300">
+          <!-- Заголовок статті -->
+          <h3 class="text-xl font-semibold text-green-600 hover:text-green-800 transition-colors duration-300 mb-2">
+            <%= link_to article.title, article_path(article) %>
+          </h3>
+
+          <!-- Обрізаний текст статті -->
+          <p class="text-gray-600 mb-4">
+            <%= truncate(article.body.to_plain_text, length: 150, separator: ' ') %>
+          </p>
+
+          <!-- Посилання "Читати далі" -->
+          <%= link_to 'Читати далі', article_path(article), class: "text-green-500 hover:text-green-700 transition-colors duration-300 font-bold" %>
+        </div>
+      <% end %>
+    </div>
+  
+  <% else %>
+    <!-- Якщо немає підкатегорій і статей -->
+    <p class="text-gray-600">У цій категорії ще немає контенту.</p>
   <% end %>
+
+  <!-- Посилання назад -->
+  <div class="mt-8">
+    <%= link_to '← Повернутися до всіх категорій', articles_categories_path, class: "text-green-500 hover:text-green-700 font-bold" %>
+  </div>
 </div>
 
