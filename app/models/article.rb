@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :articles_category
   has_rich_text :body
+  has_many_attached :images
 
   def self.ransackable_associations(auth_object = nil)
     [ "articles_category" ]
