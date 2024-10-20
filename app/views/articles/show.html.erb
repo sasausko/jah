@@ -1,7 +1,4 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
-
-<h1><%= @article.title %></h1>
+<h1 class="text-4xl py-6"><%= @article.title %></h1>
 <p><%= @article.body.to_s %></p>
 
 <%= link_to 'Назад до списку статей', articles_path, class: 'btn btn-secondary' %>

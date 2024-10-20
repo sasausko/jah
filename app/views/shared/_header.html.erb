@@ -1,14 +1,49 @@
-<header class="bg-gray-800 text-white p-4">
-  <div class="container mx-auto flex justify-between items-center">
+<!-- app/views/layouts/_header.html.erb -->
+
+<header class="bg-green-700 text-white shadow-md">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Логотип або назва блогу -->
     <div>
-      <%= link_to 'Мій Блог', root_path, class: "text-2xl font-bold" %>
+      <%= link_to 'Мій Блог', root_path, class: "text-3xl font-extrabold text-green-400 hover:text-green-300 transition-colors duration-300" %>
     </div>
+    
+    <!-- Навігаційне меню -->
     <nav>
-      <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
-        <li><%= link_to 'Головна', root_path, class: "hover:text-gray-300" %></li>
-        <li><%= link_to 'Про нас', pages_about_path, class: "hover:text-gray-300" %></li>
-        <li><%= link_to 'Умови', pages_terms_path, class: "hover:text-gray-300" %></li>
-      </ul>
+      <ul class="flex space-x-6">
+        <li>
+          <%= link_to 'Головна', root_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
+        </li>
+        <li>
+          <%= link_to 'Про нас', pages_about_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
+        </li>
+        <li>
+          <%= link_to 'Умови', pages_terms_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
+        </li>
     </nav>
+    
+    <!-- Кнопка для мобільного меню -->
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="text-green-300 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Мобільне меню -->
+  <div id="mobile-menu" class="md:hidden bg-green-700 hidden">
+    <ul class="flex flex-col space-y-2 px-4 pb-4">
+      <li>
+        <%= link_to 'Головна', root_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
+      </li>
+      <li>
+        <%= link_to 'Про нас', pages_about_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
+      </li>
+      <li>
+        <%= link_to 'Умови', pages_terms_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
+      </li>
+    </ul>
   </div>
 </header>
+
