@@ -2,15 +2,12 @@
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Логотип або назва блогу -->
     <div>
-      <%= link_to 'Мій Блог', root_path, class: "text-3xl font-extrabold text-green-400 hover:text-green-300 transition-colors duration-300" %>
+      <%= link_to 'Jah Agency', root_path, class: "text-3xl font-extrabold text-green-400 hover:text-green-300 transition-colors duration-300" %>
     </div>
 
     <!-- Навігаційне меню (для десктопа) -->
     <nav class="hidden md:block">
       <ul class="flex space-x-6">
-        <li>
-          <%= link_to 'Головна', root_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
-        </li>
         <li>
           <%= link_to 'Категорії', articles_categories_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
         </li>
@@ -36,9 +33,6 @@
   <!-- Мобільне меню -->
   <div id="mobile-menu" class="md:hidden bg-green-700 hidden" data-mobile-menu-target="menu">
     <ul class="flex flex-col space-y-2 px-4 pb-4">
-      <li>
-        <%= link_to 'Головна', root_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
-      </li>
       <li>
         <%= link_to 'Категорії', articles_categories_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
       </li>
