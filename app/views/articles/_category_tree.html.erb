@@ -1,0 +1,20 @@
+<div class="grid grid-cols-1 gap-4">
+  <% level ||= 0 %> <!-- Якщо рівень не переданий, встановлюємо його як 0 -->
+  <% categories.each do |category, sub_categories| %>
+    <div class="<%= 'border border-gray-300 p-4 rounded-lg' if level == 0 %>">
+      <!-- Відображаємо категорію як посилання -->
+      <h3 class="text-green-600 text-lg font-bold" style="padding-left: <%= level * 20 %>px;">
+        <%= link_to category.name, articles_category_path(category), 
+              class: "block text-lg font-semibold text-green-600 hover:text-green-800 transition-colors duration-300" %>
+      </h3>
+      
+      <!-- Якщо є підкатегорії, показуємо їх -->
+      <% if sub_categories.present? %>
+        <div class="pl-4 mt-2">
+          <!-- Викликаємо рекурсивно паршал для відображення підкатегорій і збільшуємо рівень -->
+          <%= render partial: "category_tree", locals: { categories: sub_categories, level: level + 1 } %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

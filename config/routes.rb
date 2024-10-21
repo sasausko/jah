@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "pages/about"
   get "pages/terms"
 
-  resources :articles_categories, only: [ :index, :show ]
+  resources :articles_categories, only: [ :show ]
   resources :articles, only: [ :index, :show ]
 
   devise_for :admin_users, ActiveAdmin::Devise.config

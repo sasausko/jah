@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.includes(:articles_category).order(created_at: :desc)
-  end
+    @articles = Article.all.limit(6) # Приклад отримання останніх статей
+    @categories = ArticlesCategory.arrange # Отримання всіх категорій з деревовидною структурою (залежно від використання Ancestry)
+   end
 
   def show
     @article = Article.find(params[:id])
