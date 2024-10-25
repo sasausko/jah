@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "pages/about"
   get "pages/terms"
+  get "pages/donate"
 
   resources :articles_categories, only: [ :show ]
   resources :articles, only: [ :index, :show ]

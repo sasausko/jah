@@ -2,23 +2,28 @@
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Логотип або назва блогу -->
     <div>
-      <%= link_to 'Jah Agency', root_path, class: "text-3xl font-extrabold text-green-400 hover:text-green-300 transition-colors duration-300" %>
+      <%= link_to t('header.title'), root_path, class: "text-3xl font-extrabold text-green-400 hover:text-green-300 transition-colors duration-300" %>
     </div>
 
-    <!-- Навігаційне меню (для десктопа) -->
-    <nav class="hidden md:block">
-      <ul class="flex space-x-6">
+    <!-- Навігаційне меню (для десктопа) вирівнювання по центру -->
+    <nav class="hidden md:block flex-1 text-center">
+      <ul class="flex justify-center space-x-6">
         <li>
-          <%= link_to 'Статті', articles_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
-        </li>
-       <li>
-          <%= link_to 'Про нас', pages_about_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
+          <%= link_to t('header.articles'), articles_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
         </li>
         <li>
-          <%= link_to 'Умови', pages_terms_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
+          <%= link_to t('header.about'), pages_about_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
+        </li>
+        <li>
+          <%= link_to t('header.terms'), pages_terms_path, class: "text-xl text-green-400 hover:text-green-300 transition-colors duration-300" %>
         </li>
       </ul>
     </nav>
+
+    <!-- Кнопка Donate (для десктопа) -->
+    <div class="hidden md:block">
+      <%= link_to t('header.donate'), pages_donate_path, class: "inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300" %>
+    </div>
 
     <!-- Кнопка для мобільного меню -->
     <div class="block md:hidden">
@@ -34,13 +39,17 @@
   <div id="mobile-menu" class="md:hidden bg-green-700 hidden" data-mobile-menu-target="menu">
     <ul class="flex flex-col space-y-2 px-4 pb-4">
       <li>
-        <%= link_to 'Cтатті', articles_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
-      </li>
-     <li>
-        <%= link_to 'Про нас', pages_about_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
+        <%= link_to t('header.articles'), articles_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
       </li>
       <li>
-        <%= link_to 'Умови', pages_terms_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
+        <%= link_to t('header.about'), pages_about_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
+      </li>
+      <li>
+        <%= link_to t('header.terms'), pages_terms_path, class: "block py-2 hover:text-green-300 transition-colors duration-300" %>
+      </li>
+      <li>
+        <!-- Кнопка Donate в мобільному меню з фіксованою шириною -->
+        <%= link_to t('header.donate'), pages_donate_path, class: "inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg mx-auto transition-colors duration-300" %>
       </li>
     </ul>
   </div>
